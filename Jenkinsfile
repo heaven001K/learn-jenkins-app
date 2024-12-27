@@ -28,9 +28,10 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo test stage'
-                sh 'cd build | grep index.html'
-                sh 'npm test'
+                sh '''
+                    test -f build/index.html
+                    npm test
+                '''
             }
         }
     }
